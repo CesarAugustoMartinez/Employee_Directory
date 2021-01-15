@@ -20,8 +20,7 @@ function Table(props) {
                   key={name}
                   style={{ width }}
                   onClick={() => {
-                    // context.handleSort(name.toLowerCase());
-                    // context.handleSort(name);
+                    props.handleSortClick(name);
                   }}
                 >
                   {name}

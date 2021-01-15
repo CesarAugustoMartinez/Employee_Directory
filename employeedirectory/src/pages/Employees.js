@@ -13,6 +13,7 @@ class Employees extends Component {
     search: "",
     results: [],
     filteredResults: [],
+    order: "descend",
     headings: [
       { name: "Image", width: "10%", order: "descend" },
       { name: "name", width: "10%", order: "descend" },
@@ -41,6 +42,68 @@ class Employees extends Component {
     this.setState({ filteredResults: employees });
   };  
 
+  handleSortClick = heading => {
+    console.log(heading);
+    
+    let currentOrder = this.state.headings
+    .filter(elem => elem.name === heading)
+    .map(elem => elem.order)
+    .toString();
+    console.log(currentOrder);
+    if (currentOrder === "descend") {
+      currentOrder = "ascend";
+    } else {
+      currentOrder = "descend";
+    }
+
+    const compareEmployees = (a, b) => {
+      if (currentOrder === "ascend") {
+        console.log(a,b);
+        // account for missing values
+        if (a[heading] === undefined) {
+          return 1;
+        } else if (b[heading] === undefined) {
+          return -1;
+        }
+        // numerically
+        else if (heading === "name") {
+          console.log(a[heading].first.localeCompare(b[heading].first));
+          return a[heading].first.localeCompare(b[heading].first);
+        } else if (heading === "dob") {
+          console.log(a[heading].age, b[heading].age);
+          return a[heading].age - b[heading].age;
+        } else {
+          return a[heading].localeCompare(b[heading]);
+        }
+      } else {
+        console.log(a,b);
+        // account for missing values
+        if (a[heading] === undefined) {
+          return 1;
+        } else if (b[heading] === undefined) {
+          return -1;
+        }
+        // numerically
+        else if (heading === "name") {
+          return b[heading].first.localeCompare(a[heading].first);
+        }else if (heading === "dob") {
+          return b[heading].age - a[heading].age;
+        }  else {
+          return b[heading].localeCompare(a[heading]);
+        }
+      }
+    };
+
+    const sortedEmployees = this.state.filteredResults.sort(compareEmployees);
+    const updateHeadings = this.state.headings.map(elem => {
+      elem.order = elem.name === heading ? currentOrder : elem.order;
+      return elem;
+    });
+
+    this.setState({...this.state, filteredResults: sortedEmployees, headings: updateHeadings});
+
+  }
+
     render() {
       return (
         <div>
@@ -58,7 +121,7 @@ class Employees extends Component {
             <SearchForm
               handleInputChange={this.handleInputChange}
             />
-            <Table state={this.state} />
+            <Table state={this.state} handleSortClick={this.handleSortClick}/>
             {/* <SearchResults results={this.state.filteredResults} /> */}
           </Container>
         </div>
