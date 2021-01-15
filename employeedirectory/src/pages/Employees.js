@@ -50,7 +50,7 @@ class Employees extends Component {
             <SearchForm
               handleInputChange={this.handleInputChange}
             />
-            <SearchResults results={this.state.results} />
+            <SearchResults results={this.state.filteredResults} />
           </Container>
         </div>
       );
