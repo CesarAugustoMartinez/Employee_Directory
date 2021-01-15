@@ -12,7 +12,7 @@ function SearchResults(props) {
     const formattedDate = [month, day, year].join("-");
     return formattedDate;
   }
-
+  console.log(props.results);
   return (
     <tbody>
       {props.results[0] !== undefined && props.results[0].name !== undefined ? (

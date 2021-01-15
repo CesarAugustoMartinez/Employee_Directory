@@ -3,7 +3,8 @@ import API from "../utils/API";
 import Container from "../components/Container";
 import Banner from "../components/Banner";
 import SearchForm from "../components/SearchForm";
-import SearchResults from "../components/SearchResults";
+import Table from "../components/Table"
+// import SearchResults from "../components/SearchResults";
 import Alert from "../components/Alert";
 
 
@@ -12,6 +13,13 @@ class Employees extends Component {
     search: "",
     results: [],
     filteredResults: [],
+    headings: [
+      { name: "Image", width: "10%", order: "descend" },
+      { name: "name", width: "10%", order: "descend" },
+      { name: "phone", width: "20%", order: "descend" },
+      { name: "email", width: "20%", order: "descend" },
+      { name: "dob", width: "10%", order: "descend" }
+    ],
     error: ""
   };
 
@@ -50,7 +58,8 @@ class Employees extends Component {
             <SearchForm
               handleInputChange={this.handleInputChange}
             />
-            <SearchResults results={this.state.filteredResults} />
+            <Table state={this.state} />
+            {/* <SearchResults results={this.state.filteredResults} /> */}
           </Container>
         </div>
       );
