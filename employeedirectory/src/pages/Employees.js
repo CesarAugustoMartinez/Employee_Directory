@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Container from "../components/Container";
-import Hero from "../components/Hero";
+import Banner from "../components/Banner";
 import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
 import Alert from "../components/Alert";
+
 
 class Employees extends Component {
   state = {
@@ -35,12 +36,11 @@ class Employees extends Component {
     render() {
       return (
         <div>
-          <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg">
+          <Banner backgroundImage="https://zascogps.com/wp-content/uploads/2018/03/EMPLOYEE-MANAGEMENTB-BANNER.jpg">
           <h1>Employee Directory</h1>
           <h2>Search your favorite employee!</h2>
-          </Hero>
+          </Banner>
           <Container style={{ minHeight: "80%" }}>
-            <h1 className="text-center">Search By Employees!</h1>
             <Alert
               type="danger"
               style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
