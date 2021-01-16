@@ -6,10 +6,11 @@ import SearchResults from "../SearchResults"
 function Table(props) {
   console.log(props.state.headings);
   return (
-    <div className="datatable mt-5">
+    <div className="datatable mt-2">
+      <span>Click on any heading to sort by it.</span>
       <table
         id="table"
-        className="table table-striped table-hover table-condensed"
+        className="table  table-striped table-hover table-condensed"
       >
         <thead>
           <tr>
@@ -23,14 +24,13 @@ function Table(props) {
                     props.handleSortClick(name);
                   }}
                 >
-                  {name}
+                  {name.toUpperCase()}
                   <span className="pointer"></span>
                 </th>
               );
             })}
           </tr>
         </thead>
-
         <SearchResults results={props.state.filteredResults} />
       </table>
     </div>

@@ -4,7 +4,6 @@ import Container from "../components/Container";
 import Banner from "../components/Banner";
 import SearchForm from "../components/SearchForm";
 import Table from "../components/Table"
-// import SearchResults from "../components/SearchResults";
 import Alert from "../components/Alert";
 
 
@@ -49,7 +48,6 @@ class Employees extends Component {
     .filter(elem => elem.name === heading)
     .map(elem => elem.order)
     .toString();
-    console.log(currentOrder);
     if (currentOrder === "descend") {
       currentOrder = "ascend";
     } else {
@@ -58,7 +56,6 @@ class Employees extends Component {
 
     const compareEmployees = (a, b) => {
       if (currentOrder === "ascend") {
-        console.log(a,b);
         // account for missing values
         if (a[heading] === undefined) {
           return 1;
@@ -76,7 +73,6 @@ class Employees extends Component {
           return a[heading].localeCompare(b[heading]);
         }
       } else {
-        console.log(a,b);
         // account for missing values
         if (a[heading] === undefined) {
           return 1;
@@ -122,7 +118,7 @@ class Employees extends Component {
               handleInputChange={this.handleInputChange}
             />
             <Table state={this.state} handleSortClick={this.handleSortClick}/>
-            {/* <SearchResults results={this.state.filteredResults} /> */}
+
           </Container>
         </div>
       );
