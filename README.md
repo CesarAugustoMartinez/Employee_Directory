@@ -1,6 +1,6 @@
 # Employee_Directory
 
-![picture](\employeedirectory\public\images\employeeDirectory.png)
+![picture](/employeedirectory/public/images/employeeDirectory.png)
 
 [App Live on Heroku](https://glacial-wildwood-83860.herokuapp.com/)
 
@@ -91,11 +91,11 @@ The user is able to:
 
 - Filter typing in the input. 
 
-![picture](\employeedirectory\public\images\filter.png)
+![picture](/employeedirectory/public/images/filter.png)
 
 - Sort clicking on any field. 
 
-![picture](\employeedirectory\public\images\sort.png)
+![picture](/employeedirectory/public/images/sort.png)
 
 
 [Back To The Top](#Online-Offline-Budget-Trackers)
