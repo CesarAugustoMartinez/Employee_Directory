@@ -6,14 +6,15 @@ import Wrapper from "./components/Wrapper";
 
 function App() {
   return (
-    <Router>
+//     <Router>
       <div>
         <Wrapper>
-          <Route exact path="/" component={Employees} />
+//           <Route exact path="/" component={Employees} />
+          <Employees />
         </Wrapper>
         <Footer />
       </div>
-    </Router>
+//     </Router>
   );
 }
 
