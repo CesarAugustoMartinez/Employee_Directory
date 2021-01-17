@@ -2,7 +2,7 @@
 
 ![picture](/employeedirectory/public/images/employeeDirectory.png)
 
-[App Live on Heroku](https://glacial-wildwood-83860.herokuapp.com/)
+[App Live](https://cesaraugustomartinez.github.io/Employees_Directory/)
 
 ---
 
